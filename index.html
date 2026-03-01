@@ -31,22 +31,22 @@
             line-height: 1.6;
         }
 
-        /* Navigation */
+        /* Navigation: Shrunken Vertically to Frame the Logo */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 2.5rem 5%;
+            padding: 0.5rem 5%; /* Tightened vertical padding */
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: rgba(0,0,0,0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            z-index: 10000; /* Highest priority */
+            z-index: 10000;
         }
 
-        /* LOGO: 4X Larger + Magical White Luminous Glow */
+        /* LOGO: Massive 4X size preserved */
         .logo-container img {
             height: 220px; 
             width: auto;
@@ -154,7 +154,7 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Buttons */
+        /* Buttons with Magical Luminous Glow */
         .btn-primary {
             display: inline-block;
             margin-top: 2rem;
@@ -203,10 +203,10 @@
             background: #000;
         }
 
-        /* RESPONSIVE LOGO FIX */
+        /* RESPONSIVE FIXES */
         @media (max-width: 768px) {
             .logo-container img { height: 100px; }
-            nav { padding: 1.5rem 5%; }
+            nav { padding: 0.5rem 5%; }
             .hero h1 { font-size: 3rem; }
         }
     </style>
@@ -240,7 +240,7 @@
         <h3>Local Edge Processing</h3>
         <p>Transcription doesn't happen in the cloud. It happens on ScribeBoard's internal NPU, ensuring your ideas never leave the hardware.</p>
     </div>
-    <div class="feature-card">
+    <div class="feature-card) {
         <h3>Tactile AI Controls</h3>
         <p>Physical sliders allow you to modulate the "Depth" and "Tone" of the AI assistant, giving recording-artist level control over your output.</p>
     </div>
