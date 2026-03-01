@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ScribeBoard: The world's first Neural-Tactile Interface by vexillaAITS. Zero-keystroke security and AI-integrated voice flow.">
+    <title>ScribeBoard | The Future of Human-Machine Interface</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #000000;
+            --accent: #008b8b; /* ScribeBoard Teal */
+            --text-main: #ffffff;
+            --text-dim: #a1a1a1;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { box-sizing: border-box; transition: all 0.3s ease; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .logo-container img {
+            height: 45px; /* Sizable and legible height */
+            width: auto;
+            display: block;
+        }
+
+        .parent-brand {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            background: radial-gradient(circle at 50% 50%, #002222 0%, #000 70%);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -2px;
+            background: linear-gradient(to bottom, #fff 40%, #555 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 2rem 0;
+        }
+
+        /* Security Feature Highlight */
+        .security-strip {
+            background: linear-gradient(90deg, transparent, var(--glass), transparent);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .security-tag {
+            color: var(--accent);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        /* Grid System */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 5% 10%;
+        }
+
+        .feature-card {
+            background: var(--glass);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent);
+            background: rgba(0, 139, 139, 0.05);
+            transform: translateY(-10px);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        /* Investor Call to Action */
+        .cta-section {
+            padding: 100px 10%;
+            text-align: center;
+            background: var(--accent);
+            color: #000;
+        }
+
+        .cta-section h2 { font-size: 3rem; margin: 0; }
+        
+        .btn-primary {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1.2rem 3.5rem;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            padding: 4rem 10%;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            border-top: 1px solid var(--border);
+        }
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo-container">
+        <img src="scribeboard.png" alt="ScribeBoard Logo">
+    </div>
+    <div class="parent-brand">Powered by vexillaAITS</div>
+</nav>
+
+<section class="hero">
+    <h1>The End of Typing.</h1>
+    <p>ScribeBoard is the first hardware-encrypted, voice-primary interface designed to turn human thought into digital reality—without the friction of QWERTY.</p>
+    <a href="#invest" class="btn-primary">View the Whitepaper</a>
+</section>
+
+<div class="security-strip">
+    <div class="security-tag">Zero-Keystroke Architecture</div>
+    <p style="margin: 0.5rem 0 0 0; color: var(--text-dim);">Immune to keyloggers. Invisible to acoustic hackers. Private by design.</p>
+</div>
+
+<section class="features-grid">
+    <div class="feature-card">
+        <h3>Neural-Vocal Flow</h3>
+        <p>A studio-grade beamforming array eliminates background noise, allowing the AI to capture every nuance of your creative intent.</p>
+    </div>
+    <div class="feature-card">
+        <h3>Local Edge Processing</h3>
+        <p>Transcription doesn't happen in the cloud. It happens on ScribeBoard's internal NPU, ensuring your ideas never leave the hardware.</p>
+    </div>
+    <div class="feature-card">
+        <h3>Tactile AI Controls</h3>
+        <p>Physical sliders allow you to modulate the "Depth" and "Tone" of the AI assistant, giving recording-artist level control over your output.</p>
+    </div>
+</section>
+
+<section class="cta-section" id="invest">
+    <h2>The Next Standard in Mobile Computing.</h2>
+    <p>From standalone peripherals to the future of integrated laptop chassis.</p>
+    <a href="mailto:invest@vexillaaits.com" class="btn-primary" style="background: #fff; color: #000;">Inquire for Partnership</a>
+</section>
+
+<footer>
+    &copy; 2026 vexillaAITS. All rights reserved. | ScribeBoard is a patented Neural-Tactile Interface.
+</footer>
+
+</body>
+</html>
