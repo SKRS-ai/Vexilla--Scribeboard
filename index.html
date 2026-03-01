@@ -11,14 +11,16 @@
     <style>
         :root {
             --bg: #000000;
-            --accent: #008b8b; /* ScribeBoard Teal */
+            --accent: #008b8b; 
             --text-main: #ffffff;
             --text-dim: #a1a1a1;
             --glass: rgba(255, 255, 255, 0.03);
             --border: rgba(255, 255, 255, 0.1);
+            --magic-glow: rgba(255, 255, 255, 1);
+            --accent-glow: rgba(0, 255, 255, 0.6);
         }
 
-        * { box-sizing: border-box; transition: all 0.3s ease; }
+        * { box-sizing: border-box; transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1); }
 
         body {
             background-color: var(--bg);
@@ -34,28 +36,36 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem 5%;
+            padding: 2.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            z-index: 1000;
+            z-index: 10000; /* Highest priority */
         }
 
+        /* LOGO: 4X Larger + Magical White Luminous Glow */
         .logo-container img {
-            height: 45px; /* Sizable and legible height */
+            height: 220px; 
             width: auto;
             display: block;
+            cursor: pointer;
+        }
+
+        .logo-container img:hover {
+            filter: drop-shadow(0 0 45px var(--magic-glow)) brightness(1.5);
+            transform: scale(1.03);
         }
 
         .parent-brand {
-            font-size: 0.7rem;
-            letter-spacing: 3px;
+            font-size: 0.85rem;
+            letter-spacing: 5px;
             color: var(--accent);
             text-transform: uppercase;
-            font-weight: 700;
+            font-weight: 800;
+            text-shadow: 0 0 15px rgba(0, 139, 139, 0.5);
         }
 
         /* Hero Section */
@@ -67,103 +77,138 @@
             align-items: center;
             text-align: center;
             padding: 0 10%;
-            background: radial-gradient(circle at 50% 50%, #002222 0%, #000 70%);
+            background: radial-gradient(circle at 50% 50%, #001f1f 0%, #000 85%);
         }
 
+        /* MAGICAL HEADLINE: THE END OF TYPING */
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(3.5rem, 10vw, 7.5rem);
             font-weight: 800;
             margin: 0;
-            letter-spacing: -2px;
-            background: linear-gradient(to bottom, #fff 40%, #555 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            letter-spacing: -4px;
+            color: #ffffff;
+            cursor: default;
+        }
+
+        .hero h1 span {
+            display: inline-block;
+            transition: all 0.8s ease;
+        }
+
+        .hero h1 span:hover {
+            color: #fff;
+            text-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff;
+            filter: brightness(1.5);
+            transform: scale(1.02);
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             color: var(--text-dim);
-            max-width: 700px;
-            margin: 2rem 0;
+            max-width: 850px;
+            margin: 3rem 0;
         }
 
-        /* Security Feature Highlight */
+        /* Security Strip */
         .security-strip {
             background: linear-gradient(90deg, transparent, var(--glass), transparent);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-            padding: 2rem 0;
+            padding: 4rem 0;
             text-align: center;
-            margin: 4rem 0;
         }
 
         .security-tag {
             color: var(--accent);
-            font-weight: bold;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
+            letter-spacing: 4px;
+            font-size: 1.1rem;
         }
 
-        /* Grid System */
+        /* Feature Cards */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            padding: 5% 10%;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            padding: 8% 10%;
         }
 
         .feature-card {
             background: var(--glass);
-            padding: 3rem;
-            border-radius: 20px;
+            padding: 4rem;
+            border-radius: 30px;
             border: 1px solid var(--border);
-            position: relative;
         }
 
         .feature-card:hover {
             border-color: var(--accent);
-            background: rgba(0, 139, 139, 0.05);
-            transform: translateY(-10px);
+            background: rgba(0, 139, 139, 0.1);
+            transform: translateY(-20px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 30px rgba(0, 139, 139, 0.3);
         }
 
         .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.8rem;
             color: var(--accent);
+            margin-bottom: 1.5rem;
         }
 
-        /* Investor Call to Action */
-        .cta-section {
-            padding: 100px 10%;
-            text-align: center;
-            background: var(--accent);
-            color: #000;
-        }
-
-        .cta-section h2 { font-size: 3rem; margin: 0; }
-        
+        /* Buttons */
         .btn-primary {
             display: inline-block;
             margin-top: 2rem;
-            padding: 1.2rem 3.5rem;
-            background: #000;
-            color: #fff;
+            padding: 1.5rem 4.5rem;
+            background: #ffffff;
+            color: #000000;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
+            font-weight: 900;
+            border-radius: 12px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 40px var(--magic-glow), 0 0 80px rgba(255,255,255,0.5);
+            transform: scale(1.08) translateY(-3px);
+        }
+
+        .cta-section {
+            padding: 150px 10%;
+            text-align: center;
+            background: linear-gradient(180deg, #000 0%, #003333 100%);
+            border-top: 2px solid var(--accent);
+        }
+
+        .cta-section h2 { font-size: 4rem; font-weight: 800; margin: 0; }
+        
+        .invest-btn {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+        }
+
+        .invest-btn:hover {
+            background: #00ffff;
+            color: #000;
+            box-shadow: 0 0 50px #00ffff, 0 0 100px var(--accent-glow);
         }
 
         footer {
-            padding: 4rem 10%;
+            padding: 6rem 10%;
             text-align: center;
-            font-size: 0.8rem;
+            font-size: 1rem;
             color: var(--text-dim);
             border-top: 1px solid var(--border);
+            background: #000;
         }
 
+        /* RESPONSIVE LOGO FIX */
+        @media (max-width: 768px) {
+            .logo-container img { height: 100px; }
+            nav { padding: 1.5rem 5%; }
+            .hero h1 { font-size: 3rem; }
+        }
     </style>
 </head>
 <body>
@@ -176,14 +221,14 @@
 </nav>
 
 <section class="hero">
-    <h1>The End of Typing.</h1>
+    <h1><span>The End of Typing.</span></h1>
     <p>ScribeBoard is the first hardware-encrypted, voice-primary interface designed to turn human thought into digital reality—without the friction of QWERTY.</p>
     <a href="#invest" class="btn-primary">View the Whitepaper</a>
 </section>
 
 <div class="security-strip">
     <div class="security-tag">Zero-Keystroke Architecture</div>
-    <p style="margin: 0.5rem 0 0 0; color: var(--text-dim);">Immune to keyloggers. Invisible to acoustic hackers. Private by design.</p>
+    <p style="margin: 1rem 0 0 0; color: var(--text-dim); font-size: 1.2rem;">Immune to keyloggers. Invisible to acoustic hackers. Private by design.</p>
 </div>
 
 <section class="features-grid">
@@ -203,8 +248,8 @@
 
 <section class="cta-section" id="invest">
     <h2>The Next Standard in Mobile Computing.</h2>
-    <p>From standalone peripherals to the future of integrated laptop chassis.</p>
-    <a href="mailto:invest@vexillaaits.com" class="btn-primary" style="background: #fff; color: #000;">Inquire for Partnership</a>
+    <p style="color: #aaa; margin: 2rem 0 4rem 0; font-size: 1.3rem;">From standalone peripherals to the future of integrated laptop chassis.</p>
+    <a href="mailto:nehemiah.brown@solomonkinrecords.com" class="btn-primary invest-btn">Inquire for Partnership</a>
 </section>
 
 <footer>
