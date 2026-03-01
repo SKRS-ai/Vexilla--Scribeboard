@@ -31,12 +31,13 @@
             line-height: 1.6;
         }
 
-        /* Navigation: Shrunken Vertically to Frame the Logo */
+        /* Navigation: Minimized Verticality */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 0.5rem 5%; /* Tightened vertical padding */
+            padding: 0 5%; /* Vertical padding set to zero */
+            height: 120px; /* Slimmer plate height */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -46,12 +47,13 @@
             z-index: 10000;
         }
 
-        /* LOGO: Massive 4X size preserved */
+        /* LOGO: Massive size kept, positioning adjusted to prevent header bloat */
         .logo-container img {
             height: 220px; 
             width: auto;
             display: block;
             cursor: pointer;
+            margin-top: 10px; /* Slight offset to keep it centered in the slim bar */
         }
 
         .logo-container img:hover {
@@ -68,15 +70,15 @@
             text-shadow: 0 0 15px rgba(0, 139, 139, 0.5);
         }
 
-        /* Hero Section */
+        /* Hero Section: Pushed down so navigation doesn't interfere with text */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 10%;
+            padding: 140px 10% 0 10%; /* Added top padding to clear the nav bar */
             background: radial-gradient(circle at 50% 50%, #001f1f 0%, #000 85%);
         }
 
@@ -154,7 +156,7 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Buttons with Magical Luminous Glow */
+        /* Luminous Buttons */
         .btn-primary {
             display: inline-block;
             margin-top: 2rem;
@@ -206,7 +208,8 @@
         /* RESPONSIVE FIXES */
         @media (max-width: 768px) {
             .logo-container img { height: 100px; }
-            nav { padding: 0.5rem 5%; }
+            nav { height: 80px; }
+            .hero { padding-top: 100px; }
             .hero h1 { font-size: 3rem; }
         }
     </style>
@@ -240,7 +243,7 @@
         <h3>Local Edge Processing</h3>
         <p>Transcription doesn't happen in the cloud. It happens on ScribeBoard's internal NPU, ensuring your ideas never leave the hardware.</p>
     </div>
-    <div class="feature-card) {
+    <div class="feature-card">
         <h3>Tactile AI Controls</h3>
         <p>Physical sliders allow you to modulate the "Depth" and "Tone" of the AI assistant, giving recording-artist level control over your output.</p>
     </div>
